@@ -43,5 +43,8 @@ gpg --batch --yes --armor --detach-sign -o "dists/$SUITE/Release.gpg" "dists/$SU
 gpg --batch --yes --clearsign -o "dists/$SUITE/InRelease" "dists/$SUITE/Release"
 cp "$HERE/martinmunk-apt.gpg" "$HERE/martinmunk-apt.asc" "$OUT/"
 cp "$HERE/site/index.html" "$OUT/index.html"
-{ echo "Packages in $SUITE/$COMPONENT:"; grep -h -E '^(Package|Version|Architecture): ' "dists/$SUITE/$COMPONENT"/binary-amd64/Packages | paste - - - ; } > "$OUT/packages.txt"
+{ echo "Packages in $SUITE/$COMPONENT:"
+  # grep exits 1 on an empty index (no releases yet); that is not an error.
+  grep -h -E '^(Package|Version|Architecture): ' "dists/$SUITE/$COMPONENT"/binary-amd64/Packages | paste - - - || true
+} > "$OUT/packages.txt"
 echo "== done"; find "$OUT" -maxdepth 4 -type f | sort | sed 's/^/  /'
