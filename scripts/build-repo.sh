@@ -5,7 +5,8 @@
 #
 #   scripts/build-repo.sh <out-dir>
 set -euo pipefail
-OUT="${1:?out dir}"; HERE="$(cd "$(dirname "$0")/.." && pwd)"
+HERE="$(cd "$(dirname "$0")/.." && pwd)"
+mkdir -p "${1:?out dir}"; OUT="$(cd "$1" && pwd)"   # absolute: the script cds into it
 SUITE="${SUITE:-trixie}"; COMPONENT="main"; ARCHES="amd64 arm64 armhf"
 ORIGIN="martinmunk"; LABEL="martinmunk packages"
 POOL="$OUT/pool/$COMPONENT"; DISTS="$OUT/dists/$SUITE"
