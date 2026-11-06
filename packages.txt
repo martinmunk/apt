@@ -1,0 +1,3 @@
+# GitHub repositories whose Release assets (*.deb) are indexed into this apt
+# repository, one per line. Opt-in: a repo is public here only when listed.
+martinmunk/avr-controld

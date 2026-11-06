@@ -1,0 +1,11 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>martinmunk apt repository</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>body{font:16px/1.5 system-ui,sans-serif;max-width:48rem;margin:3rem auto;padding:0 1rem;color:#222;background:#fff}pre{background:#f4f4f4;padding:.8rem;overflow-x:auto}code{background:#f4f4f4;padding:.1rem .3rem}@media(prefers-color-scheme:dark){body{color:#ddd;background:#111}pre,code{background:#222}}</style></head>
+<body><h1>martinmunk apt repository</h1>
+<p>Debian packages built by GitHub Actions from the repositories at <a href="https://github.com/martinmunk">github.com/martinmunk</a>. Suite <code>trixie</code>, component <code>main</code>, architectures amd64, arm64, armhf (plus <code>all</code>).</p>
+<h2>Use it</h2>
+<pre>curl -fsSL https://martinmunk.github.io/apt/martinmunk-apt.gpg | sudo tee /usr/share/keyrings/martinmunk-apt.gpg &gt;/dev/null
+echo "deb [signed-by=/usr/share/keyrings/martinmunk-apt.gpg] https://martinmunk.github.io/apt trixie main" | sudo tee /etc/apt/sources.list.d/martinmunk.list
+sudo apt update</pre>
+<p>The signing key is also available ASCII-armored as <a href="martinmunk-apt.asc">martinmunk-apt.asc</a>. The current package list is in <a href="packages.txt">packages.txt</a>; the sources are <a href="https://github.com/martinmunk/apt">github.com/martinmunk/apt</a>.</p>
+</body></html>
